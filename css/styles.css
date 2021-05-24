@@ -1,0 +1,198 @@
+*{
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #24292e;
+  line-height: 1.5;
+}
+main{
+  padding: 1rem;
+}
+nav{
+  background-color: #24292E;
+  color: #fff;
+  padding: 1rem;
+}
+.left-nav{
+  display: flex;
+  flex-direction: column;
+}
+.logo-container{
+  display: flex;
+  justify-content: center;
+}
+#logo{
+  width: 2rem;
+  height: 2rem;
+}
+.search{
+  height: 2rem;
+  width: 100%;
+  padding: .5rem;
+  border-radius: 6px;
+  background-color: inherit;
+  border: 1px solid rgba(225, 228, 232, 0.2);
+  color: inherit;
+  outline: none;
+  margin: 1rem 0;
+}
+.nav-links{
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  font-weight: bold;
+}
+/* hamburger menu styles*/
+#checkbox{
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 2rem;
+  height: 2rem;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+}
+.hamburger{
+  display: none;
+}
+#hamburger-icon{
+  color: #e1e4e8;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 2rem;
+  z-index: 1;
+}
+#checkbox:checked + .hamburger{
+  display: inline-block;
+}
+
+/* end of hamburger menu styles */
+
+.nav-links a{
+  padding: .5rem 0;
+  border-top-style: solid;
+  border-top-width: thin;
+  border-top-color: rgba(225, 228, 232, 0.2);
+}
+.nav-links a:hover{
+  color: #858585
+}
+#mini-avatar{
+  width: 1rem;
+  height: 1rem;
+  border-radius: .5rem;
+  margin-right: .5rem;
+}
+.menu-avatar{
+  display: flex;
+  align-items: center;
+  border-top-style: solid;
+  border-top-width: thin;
+  border-top-color: rgba(225, 228, 232, 0.2);
+  padding: .5rem 0;
+}
+.profile-settings .profile-icons{
+  display: none;
+}
+.user-info{
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.user-name h1{
+  font-size: 1.5rem;
+  color: #24292e;
+}
+.user-name p{
+  font-size: 1.25rem;
+  color: #586069;
+  font-weight: 300;
+}
+#large-avatar{
+  width: 15%;
+  height: 15%;
+  border-radius: 50%;
+  border: 1px solid #858585;
+  margin-right: 1rem;
+}
+.status-btn{
+  color: #586069 ;
+  display: flex;
+  border: 1px solid #e1e4e8; 
+  padding: .5rem;
+  border-radius: 6px;
+  font-size: .75rem;
+  margin-bottom: 1rem;
+}
+
+.status-btn svg{
+  margin-right: .5rem;
+}
+.status-btn:hover{
+  color: #2188ff;
+}
+.headline{
+  font-size: 1rem;
+  word-wrap: break-word;
+  color: #24292e;
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 770px){
+  .left-nav{
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+  #checkbox, #hamburger-icon{
+    display: none;
+  }
+  .hamburger{
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+  .search{
+    max-width: 15rem;
+    margin-left: 1rem;
+  }
+  .nav-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 18rem;
+    margin-left: 1rem;
+  }
+  .nav-links a{
+    padding: .5rem 0;
+    border-top-style: none;
+  }
+  .profile-settings{
+    position: absolute;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  .profile-settings .profile-icons{
+    display: inline-block;
+  }
+  .menu-avatar{
+    display: flex;
+    align-items: center;
+    border-top-style: none;
+    padding: .5rem 0;
+    margin-left: 1rem;
+  }  
+  .nav-handle{
+    display: none;
+  }
+}
