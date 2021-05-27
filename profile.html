@@ -3,17 +3,17 @@
 <head>
   <link rel="icon" href="favicon.png" />
   <link rel="stylesheet" href="css/styles.css" />
-  <script src="https://use.fontawesome.com/311d3e7da6.js"></script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Repositories</title>
 </head>
 <body>
+  <script src="https://unpkg.com/feather-icons"></script>
   <nav>
     <div class="left-nav">
       <div class="logo-container"><a href="/" ><img src="./assets/logo.png" id="logo"/></a></div>
-      <i class="fa fa-bars" aria-hidden="true" id="hamburger-icon"></i>
+      <i data-feather="menu" id="hamburger-icon"></i>           
       <input type="checkbox" id="checkbox" />
       <div class="hamburger">
         <input type="search" placeholder="Search or jump to..." class="search"/>
@@ -25,27 +25,27 @@
         </div>
         <div class="profile-settings">
           <!-- data -->
-          <i class="fa fa-plus profile-icons"></i>
-          <i class="fa fa-caret-down profile-icons"></i>
-          <a href="#" class="menu-avatar">
+          <i data-feather="plus" class="profile-icons"></i> 
+          <i data-feather="chevron-down" class="profile-icons"></i>                     
+          <a href="/profile.html" class="menu-avatar">
             <img src="https://placeimg.com/50/50/people" alt="avatar" id="mini-avatar"/>
             <!-- data -->
-            <span class="nav-handle">toby-adedipe</span>
-            <i class="fa fa-caret-down profile-icons"></i>
+            <span id="nav-handle"></span>
+            <i data-feather="chevron-down" class="profile-icons"></i>                     
           </a>
         </div>
       </div>     
     </div>    
   </nav>
   <main>
-    <div>
+    <div class="container">
       <div class="sidebar">
         <div class="user-info">
           <!-- data point -->
-          <img src="https://placeimg.com/240/240/people" alt="avatar" id="large-avatar"/>
+          <img src="" alt="avatar" id="large-avatar"/>
           <div class="user-name">
-            <h1>Adedipe Oluwatobi </h1>
-            <p>toby-adedipe</p>
+            <h1 id="full-name"></h1>
+            <p id="page-handle"></p>
           </div>
         </div>
         <div class="status-btn">
@@ -54,41 +54,47 @@
         </div>
         <!-- data -->
         <div class="headline">
-          <p>I'm a software developer with 3+ years of experience in front-end development of web/mobile applications and developing back-end API's in a variety of domains.</p>
+          <p id="bio"></p>
         </div>
-        <div class="tab">
-          <!-- add icons -->
-          <a>Overview</a>
-          <a>Repositories</a>
-          <a>Projects</a>
-          <a>Packages</a>
-        </div>
+        
       </div>
       <div class="repositories">
-        <input type="search" placeholder="Find a repository..."/>
-        <hr />
-        <p><span class="bold">124</span> results for <span class="bold">public</span> repositories</p>
-        <hr />
-        <div>
-          <div>
-            <a>playorswipe</a>
-            <div>
-              <p><span class="html-color"></span>HTML</p>
-              <!-- icon -->
-              <p>20</p>
-              <!-- icon -->
-              <p>9</p>
-              <!-- icon -->
-              <p>updated on 1 Oct</p>
-            </div>
-          </div>
-          <div>
-            <!-- icon -->
-            <p>star</p>
-          </div>
+        <div class="tab">
+          <!-- add icons -->
+          <a href="#" class="tab-links">
+            <i data-feather="book-open" class="tab-icons"></i>           
+            Overview
+          </a>
+          <a href="#" class="tab-links active-link">
+            <i data-feather="bookmark" class="tab-icons active-icon"></i>           
+            Repositories
+          </a>
+          <a href="#" class="tab-links">
+            <i data-feather="bar-chart" class="tab-icons"></i>           
+            Projects
+          </a>
+          <a href="#" class="tab-links">
+            <i data-feather="box" class="tab-icons"></i>           
+            Packages
+          </a>
+        </div>
+        <div class="search-container">
+          <input type="search" placeholder="Find a repository..." class="repository-search"/>
+        </div>
+        <div class="total-repos">
+          <p><span class="bold" id="total-count"></span> results for <span class="bold">public</span> repositories</p>
+        </div>
+        <div class="repos-container">
+          <ul class="all-repositories" id="list">
+          </ul>       
         </div>
       </div>
     </div>
   </main>
+
+  <script src="./js/profile.js"></script>
+  <script>
+    feather.replace()
+  </script>
 </body>
 </html>

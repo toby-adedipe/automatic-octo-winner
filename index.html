@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="favicon.png" />
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/styles.css" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
 <body>
-  
+  <main>
+    <div class="landing-container">
+      <img src="./assets/dark-logo.png" id="logo"/>
+      <h4>Search for a Github user</h4>
+      <form id="user-search">
+        <input type="search" class="repository-search user-search-field" placeholder="Enter a users handle" name="search" />
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+      <div class="loading"></div>
+    </div>  
+  </main>
+  <script src="./js/index.js"></script>
 </body>
 </html>
