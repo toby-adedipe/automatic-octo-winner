@@ -34,7 +34,7 @@ const loadUser = async (ev)=>{
       }
     }`
   }
-  const element = document.querySelector(".loading");
+  const element = document.getElementById("status");
   element.classList.add("loader")
 
   let body = JSON.stringify(content);
@@ -48,12 +48,12 @@ const loadUser = async (ev)=>{
   })
   .then(res=>res.json())
   .then(res => {
+    element.classList.remove("loader");
     data = res;
-    isLoading = false;
   })
   .catch(err=>{
-    error= err
-    isLoading = false;
+    element.innerHTML = "An error occured while trying to fetch data";
+    //element.classList.remove("loader");
   });
 
   // need to change the profiledata from obj to string
@@ -73,7 +73,6 @@ const loadUser = async (ev)=>{
   sessionStorage.setItem("name", name);
   sessionStorage.setItem("totalCount", totalCount);
   sessionStorage.setItem("allRepositories", JSON.stringify(allRepositories));
-  element.classList.remove("loader");
   location = "./profile.html";
 }
 form.addEventListener("submit", loadUser)
