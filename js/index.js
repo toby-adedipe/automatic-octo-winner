@@ -41,7 +41,7 @@ const loadUser = async (ev)=>{
   await fetch('https://api.github.com/graphql', {
     method: 'post',
     headers: {
-      'Authorization': 'Bearer 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',
+      'Authorization': `Bearer ${process.env.AUTHORIZATION_TOKEN}`,
       'Content-Type': 'application/json'
     },
     body: body
