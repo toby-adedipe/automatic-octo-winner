@@ -1,3 +1,5 @@
+import  TOKEN from './token.js';
+
 const form = document.querySelector("#user-search");
 
 const loadUser = async (ev)=>{
@@ -41,7 +43,7 @@ const loadUser = async (ev)=>{
   await fetch('https://api.github.com/graphql', {
     method: 'post',
     headers: {
-      'Authorization': `Bearer ${process.env.AUTHORIZATION_TOKEN}`,
+      'Authorization': `Bearer ${TOKEN}`,
       'Content-Type': 'application/json'
     },
     body: body
