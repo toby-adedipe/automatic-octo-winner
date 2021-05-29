@@ -1,7 +1,7 @@
 import  TOKEN from './token.js';
 
 const form = document.querySelector("#user-search");
-
+console.log(form);
 const loadUser = async (ev)=>{
   ev.preventDefault();
 
@@ -36,11 +36,15 @@ const loadUser = async (ev)=>{
       }
     }`
   }
-  const element = document.getElementById("status");
-  element.classList.add("loader")
+  const statusElement = document.getElementById("status");
+  const loaderElement = document.getElementById("load-div");
+
+  loaderElement.classList.add("loader")
+  statusElement.innerHTML = "";
 
   let body = JSON.stringify(content);
-  await fetch('https://api.github.com/graphql', {
+  try {
+    await fetch('https://api.github.com/graphql', {
     method: 'post',
     headers: {
       'Authorization': `Bearer ${TOKEN}`,
@@ -50,17 +54,18 @@ const loadUser = async (ev)=>{
   })
   .then(res=>res.json())
   .then(res => {
-    element.classList.remove("loader");
+    loaderElement.classList.remove("loader");
     data = res;
   })
   .catch(err=>{
-    element.innerHTML = "An error occured while trying to fetch data";
-    //element.classList.remove("loader");
+    loaderElement.classList.remove("loader");
+    statusElement.innerHTML = "An error occured while trying to fetch data";
   });
-
-  // need to change the profiledata from obj to string
-  // or find a way to save objects in localsstorage
-
+  } catch (error) {
+    loaderElement.classList.remove("loader");
+    statusElement.innerHTML = "An error occured while trying to fetch data";
+  }
+  
   sessionStorage.setItem("profileData", data);
   const avatarUrl = data.data.user.avatarUrl;
   const bio = data.data.user.bio;
@@ -77,5 +82,5 @@ const loadUser = async (ev)=>{
   sessionStorage.setItem("allRepositories", JSON.stringify(allRepositories));
   location = "./profile.html";
 }
-form.addEventListener("submit", loadUser)
 
+form.addEventListener("submit", loadUser)

@@ -16,7 +16,10 @@
       <i data-feather="menu" id="hamburger-icon"></i>           
       <input type="checkbox" id="checkbox" />
       <div class="hamburger">
-        <input type="search" placeholder="Search or jump to..." class="search"/>
+        <form id="profile-search" class="search" >
+          <input name="search" type="search" placeholder="Search or jump to..."/>
+          <div class="divider">/</div>
+        </form>
         <div class="nav-links">
           <a href="#">Pulls</a>
           <a href="#">Issues</a>
@@ -41,8 +44,7 @@
     <div class="container">
       <div class="sidebar">
         <div class="user-info">
-          <!-- data point -->
-          <img src="" alt="avatar" id="large-avatar"/>
+          <img src="https://placeimg.com/480/480/people" alt="avatar" id="large-avatar"/>
           <div class="user-name">
             <h1 id="full-name"></h1>
             <p id="page-handle"></p>
